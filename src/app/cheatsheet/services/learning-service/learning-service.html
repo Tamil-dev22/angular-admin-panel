@@ -1,0 +1,16 @@
+<h1>Service</h1>
+
+<p>Employees List</p>
+<ul>
+@for(employee of employees;track employee.id){
+    <li>
+
+{{employee.name}}
+-
+{{employee.department}}
+-
+₹{{employee.salary}}
+
+</li>
+}
+</ul>
