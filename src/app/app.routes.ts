@@ -5,6 +5,7 @@ import { UserList } from './features/users/user-list/user-list';
 import { UserForm } from './features/users/user-form/user-form';
 import { authGuard } from './core/guards/auth-guard';
 import { loginGuard } from './core/guards/login-guard';
+import { Employee } from './employee/employee';
 export const routes: Routes = [
 
   // default route
@@ -45,7 +46,12 @@ export const routes: Routes = [
     component: UserForm,
     canActivate: [authGuard]
   },
+  {
+    path: 'employees',
+    component: Employee,
+    canActivate: [authGuard]
 
+  },
   {
     path: '**',
     redirectTo: 'login'

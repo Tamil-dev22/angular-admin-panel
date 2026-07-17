@@ -1,0 +1,47 @@
+<h1 class="text-danger">Pipes</h1>
+
+<p>Built in pipes</p>
+
+<div>
+    <p>UpperCasePipe: {{'tamilarasan' | uppercase }}</p>
+    <p>LowerCasePipe: {{'TAMILARASAN' | lowercase }}</p>
+    <p>TitleCasePipe: {{'TAMILARASAN' | titlecase }}</p>
+    <p>DatePipe: {{today | date}} {{today | date:'dd/MM/yyyy'}}</p>
+    <p>CurrencyPipe: {{5000 | currency:'INR'}}</p>
+    <p>PercentPipe:{{0.75 | percent}}</p>
+    <p>DecimalPipe:{{12342.333343242 | number:'1.2-2'}}</p>
+    <p>SlicePipe:{{'Tamilarasan' | slice:0:5}}</p>
+    <p>JsonPipe: {{employee | json}}</p>
+    <p>AsyncPipe: {{name$ | async}}</p>
+
+    <p>Asyncpipe with HTTP:</p>
+    <ul>
+        @for (user of (users$ | async); track user.id) {
+        <li>
+            {{ user.name }}
+        </li>
+        }
+    </ul>
+</div>
+
+<div>
+    <p>Custom Pipe</p>
+    Pure pipe (pure:true)
+    <div>{{ 'tamil' | capitalize }}</div>
+    Impure pipe (pure:false)
+    <div>
+  <h2>Count : {{ count }}</h2>
+
+<button (click)="increment()">
+  Increment
+</button>
+
+<button (click)="changeName()">
+  Change Name
+</button>
+
+<p>{{ name | filter }}</p>
+
+    </div>
+</div>
+
