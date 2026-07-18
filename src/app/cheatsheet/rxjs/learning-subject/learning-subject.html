@@ -1,1 +1,28 @@
-<p>learning-subject works!</p>
+<h1> Subject and Types</h1>
+
+<hr>
+<div class="ms-2">
+<button (click)="runSubject()" class="btn btn-success me-2"> Subject</button>
+<button (click)="runBehaviourSubject()" class="btn btn-success me-2"> BehaviourSubject</button>
+</div>
+
+<div class="mt-2 ms-2 mb-2">
+<button (click)="runReplaySubject()" class="btn btn-success me-2"> ReplaySubject</button>
+<button (click)="runAsyncSubject()" class="btn btn-success me-2"> AsyncSubject</button>
+</div>
+
+
+
+<div>Output</div>
+<ul>
+
+
+ @for(score of scores;track $index){
+    <li>
+        {{score}}
+    </li>
+ }
+</ul>
+<button (click)="clear()" class="btn btn-danger"> Clear </button>
+
+<hr>
