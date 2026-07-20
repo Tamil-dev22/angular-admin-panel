@@ -1,0 +1,119 @@
+<h1>Rxjs Operators</h1>
+
+<h5>Creation Opertaors</h5>
+
+<p> of()</p>
+
+    <ul>
+    @for(employee of (employees$ | async); track employee.id){
+    <li>{{employee.name}}</li>
+    }
+   
+</ul>
+
+<p>from()</p>
+
+
+<ul>  
+    @if (students$ | async; as employee)  {
+
+    
+    <li>
+{{employee.name}}
+    </li>
+}
+</ul>
+
+
+<p> interval()</p>
+
+<!-- <p>{{counter$ | async}}</p> -->
+
+
+<p> timer()</p>
+
+<p>{{timer$ | async}}</p>
+
+
+<p> from event() </p>
+
+<button #btn>Click Me</button>
+
+<h5>Creation Opertaors</h5>
+
+
+<button class="btn btn-primary mb-2 me-2" (click)="runMap()"> Map() </button>
+<button class="btn btn-primary mb-2 me-2" (click)="runSwitchMap()"> switchMap() </button>
+<button class="btn btn-primary mb-2 me-2" (click)="runMergeMap()"> MergeMap() </button>
+<button class="btn btn-primary mb-2 me-2" (click)="runConcatMap()"> ConcatMap() </button>
+<button class="btn btn-primary mb-2 me-2" (click)="runExhaustMap()"> exhaustMap() </button>
+
+
+
+<h5>Filtering Operators</h5>
+
+<button (click)="filterExample()">filter()</button>
+<button (click)="takeExample()">take()</button>
+<button (click)="skipExample()">skip()</button>
+<button (click)="firstExample()">first()</button>
+<button (click)="lastExample()">last()</button>
+<button (click)="distinctExample()">distinctUntilChanged()</button>
+<button (click)="debounceExample()">debounceTime()</button>
+<button (click)="throttleExample()">throttleTime()</button>
+
+
+
+<h2>Combination Operators</h2>
+
+<button (click)="combineLatestExample()">combineLatest()</button>
+<button (click)="forkJoinExample()">forkJoin()</button>
+<button (click)="zipExample()">zip()</button>
+<button (click)="mergeExample()">merge()</button>
+<button (click)="concatExample()">concat()</button>
+
+
+<h2>Utility Operators</h2>
+
+<button (click)="tapExample()">
+  tap()
+</button>
+
+<button (click)="delayExample()">
+  delay()
+</button>
+
+<button (click)="finalizeExample()">
+  finalize()
+</button>
+
+<button (click)="timeoutExample()">
+  timeout()
+</button>
+
+<hr>
+
+<h2>Error Handling Operators</h2>
+
+<button (click)="catchErrorExample()">
+  catchError()
+</button>
+
+<button (click)="retryExample()">
+  retry()
+</button>
+
+<button (click)="throwErrorExample()">
+  throwError()
+</button>
+
+<hr>
+
+<h2>Multicasting Operators</h2>
+
+<button (click)="shareExample()">
+  share()
+</button>
+
+<button (click)="shareReplayExample()">
+  shareReplay()
+</button>

@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { LearningRxjsOperators } from '../learning-rxjs-operators/learning-rxjs-operators';
 
 @Component({
   selector: 'app-learning-subject',
-  imports: [],
+  imports: [LearningRxjsOperators],
   templateUrl: './learning-subject.html',
   styleUrl: './learning-subject.scss',
 })
 export class LearningSubject {
   scores: string[] = [];
-
-
 
   log(message: string) {
     this.scores.push(message);
