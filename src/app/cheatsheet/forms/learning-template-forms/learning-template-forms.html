@@ -1,0 +1,250 @@
+    <h3>Template Driven Forms</h3>
+
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="m-2">
+
+            <div>
+                <label> Name </label>
+                <br>
+                <input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" required placeholder="Enter Name">
+                <br>
+                @if ( name.invalid && (name.touched || userForm.submitted)){
+                <div class="text-danger">
+                    {{ getErrorMessage(name, 'name') }}
+                </div>
+                }
+
+            </div>
+
+            <div>
+                <label for="">Password</label>
+                <br>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password"
+                    placeholder="Enter password" minlength="5" required>
+                <br>
+                @if ( password.invalid && (password.touched || userForm.submitted)){
+                <div class="text-danger">
+                    {{ getErrorMessage(password, 'password') }}
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for="">Email</label>
+                <br>
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="Enter email"
+                    required>
+                @if ( email.invalid && (email.touched || userForm.submitted)){
+                <div class="text-danger">
+                    {{ getErrorMessage(email, 'email') }}
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for=""> Phone Number</label>
+                <br>
+                <input type="tel" name="phone_number" #phone_number="ngModel" [(ngModel)]="user.phone_number"
+                    placeholder="Enter Phone Number" required>
+                <!-- pattern="[0-9]{10}" -->
+
+                @if ( phone_number.invalid && (phone_number.touched || userForm.submitted)){
+                <div class="text-danger">
+                    {{ getErrorMessage(phone_number, 'phone_number') }}
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for=""> Website</label>
+                <br>
+                <input type="url" name="website" [(ngModel)]="user.website" placeholder="https://example.com" required
+                    #website="ngModel">
+                @if ( website.invalid && (website.touched || userForm.submitted)){
+                <div class="text-danger">
+                    {{ getErrorMessage(website, 'website') }}
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for=""> Search</label>
+                <br>
+                <input type="search" name="search" [(ngModel)]="user.search" placeholder="Enter search" #search="ngModel"
+                    required>
+                @if ( search.invalid && (search.touched || userForm.submitted)){
+                <div class="text-danger">
+                    {{ getErrorMessage(search, 'search') }}
+                </div>
+                }
+            </div>
+
+            <div>
+                <label> Age</label>
+                <br>
+                <input type="number" name="age" [(ngModel)]="user.age" required placeholder="Enter Age" #age="ngModel"
+                    min="18" max="60">
+                @if ( age.invalid && (age.touched || userForm.submitted)){
+                <div class="text-danger">
+                    {{ getErrorMessage(age, 'age') }}
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for="">Date of birth</label>
+                <br>
+                <input type="date" name="dob" [(ngModel)]="user.dob" placeholder="Enter your date of birth">
+            </div>
+
+            <div>
+                <label for=""> Meeting Time</label>
+                <br>
+                <input type="time" name="meeting_time" [(ngModel)]="user.meeting_time" placeholder="Enter Meeting time">
+            </div>
+
+            <div>
+                <label for=""> Appointment Date && Time</label>
+                <br>
+                <input type="datetime-local" name="appointment" [(ngModel)]="user.appointment"
+                    placeholder="Enter Appointment">
+            </div>
+
+            <div>
+                <label for=""> Joining Month</label>
+                <br>
+                <input type="month" name="joining_month" [(ngModel)]="user.joining_month" placeholder="Enter Joining Month">
+            </div>
+
+            <div>
+                <label for="">Select Week</label>
+                <br>
+                <input type="week" name="work_week" [(ngModel)]="user.work_week" placeholder="Enter Work week">
+            </div>
+
+            <div>
+                <label for="">Favourite Color</label>
+                <br>
+                <input type="color" name="favourite_color" [(ngModel)]="user.favourite_color"
+                    placeholder="Enter favourite color">
+            </div>
+
+            <div>
+                <label for="">Volume</label>
+                <br>
+                <input type="range" name="volume" [(ngModel)]="user.volume" placeholder="Enter Volume">
+            </div>
+
+            <div class="d-inline-flex">
+                <input type="checkbox" name="is_accepted" [(ngModel)]="user.is_accepted" #terms="ngModel" class=" me-2">
+                <label for=""> I accept the Terms & Conditions
+                </label>
+                @if(terms.invalid && userForm.submitted){
+                <div class="text-danger">
+                    Please accept Terms & Conditions.
+                </div>
+                }
+            </div>
+
+            <div>
+                <label for="">Gender</label>
+                <br><br>
+                <label for="" class="d-inline-flex me-2">
+                    <input type="radio" name="gender" value="Male" #gender="ngModel" [(ngModel)]="user.gender" class="me-1">
+                    Male
+                </label>
+
+                <label for="" class="d-inline-flex me-2">
+                    <input type="radio" name="gender" value="Female" [(ngModel)]="user.gender" class="me-1">
+                    Female
+                </label>
+
+                <label for="" class="d-inline-flex me-2">
+                    <input type="radio" name="gender" value="others" [(ngModel)]="user.gender" class="me-1">
+                    Others
+                </label>
+
+
+            </div>
+            @if(gender.invalid && (gender.touched || userForm.submitted)){
+            <div class="text-danger">
+                {{ getErrorMessage(gender,'gender') }}
+            </div>
+            }
+
+            <div>
+                <label for=""> Resume</label>
+                <br>
+                <input type="file" #fileInput (change)="onFileSelected($event)">
+
+                @if(user.file){
+                <p>Selected File: {{ user.file.name }}</p>
+                }
+            </div>
+            <br>
+            <div>
+                <select name="countries" [(ngModel)]="user.countries" #countriesControl="ngModel">
+                    <option value=""> Select a Country</option>
+                    @for(country of countries;track $index ){
+                    <option [value]="country">
+                        {{country}}
+                    </option>
+                    }
+
+                </select>
+
+                @if (user.countries.length === 0 && (countriesControl.touched || userForm.submitted)) {
+                <div class="text-danger">
+                    Please select Country
+                </div>
+                }
+            </div>
+            <div>
+                <select name="skills" [(ngModel)]="user.skills" #skillsControl="ngModel" multiple>
+                    <option value=""> Select a Skills</option>
+                    @for(skill of skills;track $index ){
+                    <option [value]="skill">
+                        {{skill}}
+                    </option>
+                    }
+
+                </select>
+                @if (user.skills.length === 0 && (skillsControl.touched || userForm.submitted)) {
+                <div class="text-danger">
+                    Please select at least one skill.
+                </div>
+                }
+
+            </div>
+            <input type="reset" value="Reset">
+
+            <br>
+            <input type="button" value="Click Me" (click)="showMessage()">
+            <button type="submit" class="btn btn-success">Save</button>
+            <!-- [disabled]="userForm.invalid || isSubmitting" -->
+        </div>
+
+    </form>
+
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Action</th>
+        </tr>
+
+        @for(user of users; track $index){
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.countries }}</td>
+            <td>
+                <button type="button" (click)="edit($index)">
+                    Edit
+                </button>
+            </td>
+        </tr>
+        }
+    </table>

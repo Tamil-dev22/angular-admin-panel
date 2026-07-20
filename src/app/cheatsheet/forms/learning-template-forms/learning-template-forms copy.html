@@ -1,0 +1,493 @@
+<div class="container py-4">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Template Driven Form</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+                <div class="row">
+
+                    <!-- Name -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            [(ngModel)]="user.name"
+                            #name="ngModel"
+                            required
+                            placeholder="Enter Name">
+
+                        @if(name.invalid && (name.touched || userForm.submitted)){
+                        <div class="text-danger small mt-1">
+                            {{getErrorMessage(name,'name')}}
+                        </div>
+                        }
+                    </div>
+
+                    <!-- Password -->
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            class="form-control"
+                            name="password"
+                            [(ngModel)]="user.password"
+                            #password="ngModel"
+                            minlength="5"
+                            required
+                            placeholder="Enter Password">
+
+                        @if(password.invalid && (password.touched || userForm.submitted)){
+                        <div class="text-danger small mt-1">
+                            {{getErrorMessage(password,'password')}}
+                        </div>
+                        }
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            [(ngModel)]="user.email"
+                            #email="ngModel"
+                            required
+                            placeholder="Enter Email">
+
+                        @if(email.invalid && (email.touched || userForm.submitted)){
+                        <div class="text-danger small mt-1">
+                            {{getErrorMessage(email,'email')}}
+                        </div>
+                        }
+
+                    </div>
+
+                    <!-- Phone -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            class="form-control"
+                            name="phone_number"
+                            [(ngModel)]="user.phone_number"
+                            #phone_number="ngModel"
+                            required
+                            placeholder="Enter Phone Number">
+
+                        @if(phone_number.invalid && (phone_number.touched || userForm.submitted)){
+                        <div class="text-danger small mt-1">
+                            {{getErrorMessage(phone_number,'phone_number')}}
+                        </div>
+                        }
+
+                    </div>
+
+                    <!-- Website -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Website
+                        </label>
+
+                        <input
+                            type="url"
+                            class="form-control"
+                            name="website"
+                            [(ngModel)]="user.website"
+                            #website="ngModel"
+                            required
+                            placeholder="https://example.com">
+
+                    </div>
+
+                    <!-- Search -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Search
+                        </label>
+
+                        <input
+                            type="search"
+                            class="form-control"
+                            name="search"
+                            [(ngModel)]="user.search"
+                            #search="ngModel"
+                            required>
+
+                    </div>
+
+                    <!-- Age -->
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="age"
+                            [(ngModel)]="user.age"
+                            #age="ngModel"
+                            min="18"
+                            max="60"
+                            required>
+
+                    </div>
+
+                    <!-- DOB -->
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Date of Birth
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            name="dob"
+                            [(ngModel)]="user.dob">
+
+                    </div>
+
+                    <!-- Time -->
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Meeting Time
+                        </label>
+
+                        <input
+                            type="time"
+                            class="form-control"
+                            name="meeting_time"
+                            [(ngModel)]="user.meeting_time">
+
+                    </div>
+
+                    <!-- Appointment -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Appointment
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            class="form-control"
+                            name="appointment"
+                            [(ngModel)]="user.appointment">
+
+                    </div>
+
+                    <!-- Month -->
+
+                    <div class="col-md-3 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Joining Month
+                        </label>
+
+                        <input
+                            type="month"
+                            class="form-control"
+                            name="joining_month"
+                            [(ngModel)]="user.joining_month">
+
+                    </div>
+
+                    <!-- Week -->
+
+                    <div class="col-md-3 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Week
+                        </label>
+
+                        <input
+                            type="week"
+                            class="form-control"
+                            name="work_week"
+                            [(ngModel)]="user.work_week">
+
+                    </div>
+
+                    <!-- Color -->
+
+                    <div class="col-md-4 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Favourite Color
+                        </label>
+
+                        <input
+                            type="color"
+                            class="form-control form-control-color"
+                            name="favourite_color"
+                            [(ngModel)]="user.favourite_color">
+
+                    </div>
+
+                    <!-- Range -->
+
+                    <div class="col-md-8 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Volume
+                        </label>
+
+                        <input
+                            type="range"
+                            class="form-range"
+                            name="volume"
+                            [(ngModel)]="user.volume">
+
+                    </div>
+
+                    <!-- Gender -->
+
+                    <div class="col-12 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Gender
+                        </label>
+
+                        <div class="d-flex gap-4">
+
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="gender"
+                                    value="Male"
+                                    [(ngModel)]="user.gender">
+                                <label class="form-check-label">Male</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="gender"
+                                    value="Female"
+                                    [(ngModel)]="user.gender">
+                                <label class="form-check-label">Female</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="gender"
+                                    value="Others"
+                                    [(ngModel)]="user.gender">
+                                <label class="form-check-label">Others</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- File -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Resume
+                        </label>
+
+                        <input
+                            class="form-control"
+                            type="file"
+                            (change)="onFileSelected($event)">
+
+                        @if(user.file){
+                        <div class="text-success mt-2">
+                            {{user.file.name}}
+                        </div>
+                        }
+
+                    </div>
+
+                    <!-- Country -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Country
+                        </label>
+
+                        <select
+                            class="form-select"
+                            name="countries"
+                            [(ngModel)]="user.countries">
+
+                            <option value="">Select Country</option>
+
+                            @for(country of countries;track $index){
+                            <option [value]="country">
+                                {{country}}
+                            </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+                    <!-- Skills -->
+
+                    <div class="col-12 mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Skills
+                        </label>
+
+                        <select
+                            multiple
+                            class="form-select"
+                            name="skills"
+                            [(ngModel)]="user.skills">
+
+                            @for(skill of skills;track $index){
+                            <option [value]="skill">
+                                {{skill}}
+                            </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+                    <!-- Terms -->
+
+                    <div class="col-12 mb-4">
+
+                        <div class="form-check">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                name="is_accepted"
+                                [(ngModel)]="user.is_accepted">
+
+                            <label class="form-check-label">
+                                I accept the Terms & Conditions
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center">
+
+                    <button class="btn btn-success me-2" type="submit">
+                        Save
+                    </button>
+
+                    <button class="btn btn-warning me-2" type="reset">
+                        Reset
+                    </button>
+
+                    <button class="btn btn-info text-white"
+                        type="button"
+                        (click)="showMessage()">
+                        Click Me
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="card mt-5 shadow">
+
+        <div class="card-header bg-dark text-white">
+            User List
+        </div>
+
+        <div class="card-body table-responsive">
+
+            <table class="table table-bordered table-hover align-middle">
+
+                <thead class="table-primary">
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th width="120">Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @for(user of users;track $index){
+
+                    <tr>
+
+                        <td>{{user.name}}</td>
+
+                        <td>{{user.email}}</td>
+
+                        <td>{{user.countries}}</td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-sm btn-primary"
+                                (click)="edit($index)">
+                                Edit
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
