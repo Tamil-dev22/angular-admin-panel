@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LearningTemplateForms } from '../../cheatsheet/forms/learning-template-forms/learning-template-forms';
+import { LearningReactiveForms } from '../../cheatsheet/forms/learning-reactive-forms/learning-reactive-forms';
 // import { Learning } from '../../cheatsheet/pipe/learning/learning';
 // import { LearningService } from '../../cheatsheet/services/learning-service/learning-service';
 // import { LearningRxjs } from '../../cheatsheet/rxjs/learning-rxjs/learning-rxjs';
@@ -7,7 +8,7 @@ import { LearningTemplateForms } from '../../cheatsheet/forms/learning-template-
 
 @Component({
   selector: 'app-dashboard',
-  imports: [LearningTemplateForms],
+  imports: [LearningTemplateForms,LearningReactiveForms],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
