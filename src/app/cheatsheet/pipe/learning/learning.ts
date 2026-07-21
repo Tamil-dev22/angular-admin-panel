@@ -7,7 +7,7 @@ import { FilterPipe } from '../filter-pipe';
 
 @Component({
   selector: 'app-learning',
-  imports: [UpperCasePipe,LowerCasePipe, TitleCasePipe,DatePipe,CurrencyPipe,PercentPipe,DecimalPipe,SlicePipe,JsonPipe,AsyncPipe,CommonModule,CapitalizePipe,FilterPipe],
+  imports: [UpperCasePipe,LowerCasePipe, TitleCasePipe,DatePipe,CurrencyPipe,PercentPipe,DecimalPipe,SlicePipe,JsonPipe,AsyncPipe,CommonModule,CapitalizePipe],
   templateUrl: './learning.html',
   styleUrl: './learning.scss',
 })

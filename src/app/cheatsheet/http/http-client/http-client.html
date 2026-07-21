@@ -1,0 +1,107 @@
+<h2>Angular HTTP Client CRUD</h2>
+
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="m-2">
+
+    <div class="mb-2">
+
+        <label>Name</label>
+
+        <br>
+
+        <input
+            type="text"
+            name="name"
+            [(ngModel)]="newUser.name"
+            required>
+
+    </div>
+
+    <div class="mb-2">
+
+        <label>Username</label>
+
+        <br>
+
+        <input
+            type="text"
+            name="username"
+            [(ngModel)]="newUser.username"
+            required>
+
+    </div>
+
+    <div class="mb-2">
+
+        <label>Email</label>
+
+        <br>
+
+        <input
+            type="email"
+            name="email"
+            [(ngModel)]="newUser.email"
+            required>
+
+    </div>
+
+    <button class="btn btn-success">
+
+        {{ editId === null ? 'Create User' : 'Update User' }}
+
+    </button>
+
+</form>
+
+<hr>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Actions</th>
+
+    </tr>
+
+    @for(user of users; track user.id){
+
+    <tr>
+
+        <td>{{user?.id}}</td>
+
+        <td>{{user?.name}}</td>
+
+        <td>{{user?.username}}</td>
+
+        <td>{{user?.email}}</td>
+
+        <td>
+
+            <button
+                class="btn btn-warning btn-sm"
+                (click)="edit(user)">
+                Edit
+            </button>
+
+            <button
+                class="btn btn-info btn-sm ms-2"
+                (click)="patchUser(user.id)">
+                Patch
+            </button>
+
+            <button
+                class="btn btn-danger btn-sm ms-2"
+                (click)="deleteUser(user.id)">
+                Delete
+            </button>
+
+        </td>
+
+    </tr>
+
+    }
+
+</table>
